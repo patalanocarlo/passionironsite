@@ -527,13 +527,25 @@ body {
 .cta-button:hover {
   background-color: #c00;
 }
-
 .cta-container {
   position: absolute;
   top: 60%; /* Cambia il valore in base a dove vuoi che si trovi */
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  animation: fadeInUp 1s ease-out forwards; /* Aggiungi questa riga */
+  opacity: 0; /* Inizialmente invisibile */
+}
+
+@keyframes fadeInUp {
+  0% {
+    transform: translate(-50%, 20%); /* Inizia dal basso */
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%); /* Posizione finale */
+    opacity: 1;
+  }
 }
 
 .cta-button {

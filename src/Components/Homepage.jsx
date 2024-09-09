@@ -18,6 +18,7 @@ const HomePage = () => {
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           <li><a href="#about">Prenotazioni</a></li>
           <li><a href="#vehicles">I nostri Coach</a></li>
+          <li><a href="#contacts">Shop</a></li>
           <li><a href="#contacts">Contatti</a></li>
         </ul>
         <div className="social-links">
@@ -40,7 +41,10 @@ const HomePage = () => {
         <img src={ImageHome} alt="Car" />
         <div className="hero-overlay"></div>
         <div className="hero-text">Build Yourself!</div>
-    
+        <div className="cta-container">
+    <button className="cta-button">Inizia con noi</button>
+  </div>
+
       </div>
 
       <div className="content">

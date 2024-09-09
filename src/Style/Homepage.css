@@ -1,0 +1,395 @@
+.home-container {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-family: "Brush Script MT", cursive;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: #fff;
+  font-size: 20px;
+}
+
+.hero-image {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+.hero-text {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: white;
+  font-family: "Brush Script MT", cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid white;
+  animation: typing 2.8s steps(40, end) 1s infinite,
+    blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 18%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+}
+
+@keyframes pause {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 18%;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Media Queries */
+
+/* Per schermi molto grandi */
+@media (min-width: 1507px) and (max-width: 1669px) {
+  .hero-text {
+    font-size: 48px;
+    animation: typing 2.8s steps(40, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 22%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 22%;
+    }
+  }
+}
+@media (max-width: 1506px) and (min-width: 1320px) {
+  .hero-text {
+    font-size: 46px;
+    animation: typing 2.8s steps(40, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 23%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 23%;
+    }
+  }
+}
+
+@media (max-width: 1319px) and (min-width: 1201px) {
+  .hero-text {
+    font-size: 44px;
+    animation: typing 2.8s steps(40, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 26%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 26%;
+    }
+  }
+}
+@media (max-width: 1100px) and (min-width: 992px) {
+  .hero-text {
+    font-size: 36px;
+    animation: typing 2s steps(50, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 30%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 30%;
+    }
+  }
+}
+/* Per schermi grandi */
+@media (max-width: 1199px) and (min-width: 1101px) {
+  .hero-text {
+    font-size: 41px;
+    animation: typing 2s steps(30, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 27%;
+    }
+  }
+
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 27%;
+    }
+  }
+}
+
+/* Per schermi medi */
+@media (max-width: 991px) and (min-width: 768px) {
+  .hero-text {
+    font-size: 28px;
+    animation: typing 2s steps(25, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.5s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 26%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 26%;
+    }
+  }
+}
+@media (max-width: 767px) and (min-width: 601px) {
+  .hero-text {
+    font-size: 27px;
+    animation: typing 2.8s steps(20, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.2s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 32%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 32%;
+    }
+  }
+}
+@media (max-width: 600px) and (min-width: 501px) {
+  .hero-text {
+    font-size: 26px;
+    animation: typing 2.8s steps(20, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.2s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 36%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 36%;
+    }
+  }
+}
+@media (max-width: 500px) and (min-width: 406px) {
+  .hero-text {
+    font-size: 26px;
+    animation: typing 2.8s steps(20, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.2s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 45%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 45%;
+    }
+  }
+}
+@media (max-width: 405px) and (min-width: 341px) {
+  .hero-text {
+    font-size: 24px;
+    animation: typing 2.8s steps(20, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.2s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 50%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+}
+/* Per schermi piccoli */
+@media (min-width: 320px) and (max-width: 340px) {
+  .hero-text {
+    font-size: 20px;
+    animation: typing 2.8s steps(20, end) 1s infinite,
+      blink-caret 0.8s step-end infinite, pause 2.2s infinite;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 5%;
+    }
+  }
+  @keyframes pause {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 50%;
+    }
+  }
+}

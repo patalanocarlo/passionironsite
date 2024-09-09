@@ -447,7 +447,7 @@ body {
   }
 }
 
-@media (min-width: 687px) {
+@media (min-width: 859px) {
   .nav-links,
   .social-links {
     display: flex;
@@ -485,7 +485,7 @@ body {
   margin-bottom: 10px;
 }
 
-@media (max-width: 687px) {
+@media (max-width: 859px) {
   .nav-links {
     display: none;
   }

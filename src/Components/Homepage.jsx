@@ -20,17 +20,20 @@ const HomePage = () => {
           <li><a href="#vehicles">I nostri Coach</a></li>
           <li><a href="#contacts">Shop</a></li>
           <li><a href="#contacts">Contatti</a></li>
+          <li><a href="#contacts">Abbonamenti</a></li>
         </ul>
         <div className="social-links">
-          <a href="#instagram" className="social-icon">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="#facebook" className="social-icon">
-            <FontAwesomeIcon icon={faFacebookF} />
-          </a>
-          <a href="#email" className="social-icon">
-          <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+        <a href="https://www.instagram.com/passion_iron/" className="social-icon" target="_blank" rel="noopener noreferrer">
+  <FontAwesomeIcon icon={faInstagram} />
+</a>
+<a href="https://www.facebook.com/teampassioniron/" className="social-icon" target="_blank" rel="noopener noreferrer">
+  <FontAwesomeIcon icon={faFacebookF} />
+</a>
+<a href="
+info@passioniron.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+  <FontAwesomeIcon icon={faEnvelope} />
+</a>
+
         </div>
         <div className="menu-icon" onClick={toggleMenu}>
           ☰

@@ -172,6 +172,23 @@ const HomePage = () => {
     </div>
   </div>
 </div>
+<div className="be-passionate-section">
+  <h2 className="be-passionate-title">Allora ti abbiamo convinto?</h2>
+  <div className="underline"></div>
+  <div className="arrow">▼</div>
+  <p className="be-passionate-quote">
+  Ti aspetta uno spazio tutto dedicato a te,troverai tante persone con storie diverse che mettono le proprie passioni a disposizione di tutti. Un fitness team tutto italiano.
+  </p>
+</div>
+<div class="booking-banner">
+<div class="booking-content">
+  <span class="booking-text">Prenota la tua prima lezione <span class="highlight">ADESSO</span></span>
+  <button class="booking-button">Prenota Ora</button>
+</div>
+</div>
+<div class="footer">
+  <p>© 2019 Passion Iron,Questo sito ha solo uno scopo dimostrativo e non rappresenta un'offerta reale.</p>
+</div>
     </div>
   );
 };

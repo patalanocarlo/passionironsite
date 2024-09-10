@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../Style/Homepage.css";
+import { Link } from "react-router-dom";
 import ImageHome from "../Images/HomepageImage.jpg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons';
@@ -49,7 +50,7 @@ const HomePage = () => {
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           <li><a href="#about">Prenotazioni</a></li>
           <li><a href="#vehicles">I nostri Coach</a></li>
-          <li><a href="#contacts">Shop</a></li>
+          <li><Link to="/shop">Shop</Link></li>
           <li><a href="#contacts">Contatti</a></li>
           <li><a href="#contacts">Abbonamenti</a></li>
         </ul>

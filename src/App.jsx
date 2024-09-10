@@ -1,11 +1,15 @@
 import HomePage from "./Components/Homepage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import ShopPage from  "./Components/ShopPage"
 import './App.css';
-
 function App() {
   return (
-    <div className="App">
-       <HomePage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage />} />  {/* Aggiungi questa rotta */}
+      </Routes>
+    </Router>
   );
 }
 

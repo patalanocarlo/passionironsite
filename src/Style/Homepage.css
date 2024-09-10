@@ -564,7 +564,6 @@ body {
   background-color: #cc0000;
 }
 /* Animazioni per gli elementi della sezione */
-/* Animazioni per gli elementi della sezione */
 @keyframes slideInFromLeft {
   from {
     opacity: 0;
@@ -609,7 +608,6 @@ body {
   opacity: 0;
 }
 
-/* Aggiunta della classe animate per avviare le animazioni */
 .animate .text-section,
 .animate .image-section,
 .animate .discover-button,
@@ -645,7 +643,6 @@ body {
   animation-delay: 0.5s;
 }
 
-/* Stile della sezione About Us */
 .about-us-section {
   padding: 50px 0;
   background-color: #f7f7f7;
@@ -726,4 +723,16 @@ body {
   height: auto;
   border-radius: 10px;
   animation: slideInFromRight 1.5s ease-out;
+}
+/* Media query per schermi tra 320px e 580px */
+@media (max-width: 580px) and (min-width: 320px) {
+  .animate .text-section,
+  .animate .image-section,
+  .animate .discover-button,
+  .animate .subtitle,
+  .animate .main-title,
+  .animate .section-description p,
+  .animate .company-name {
+    animation: slideInFromLeft 1.5s ease-out forwards;
+  }
 }

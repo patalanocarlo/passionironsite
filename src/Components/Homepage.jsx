@@ -8,7 +8,7 @@ import ImageHome2 from "../Images/Grosso enorme uomo.jpg";
 
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [aboutVisible, setAboutVisible] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false); 
   const aboutSectionRef = useRef(null);
 
   const toggleMenu = () => {
@@ -19,13 +19,13 @@ const HomePage = () => {
     const observer = new IntersectionObserver(
       (entries, observer) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting && !aboutVisible) {
-            setAboutVisible(true);
-            observer.disconnect(); // Disconnetti l'osservatore una volta avviata l'animazione
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            observer.disconnect(); 
           }
         });
       },
-      { threshold: 0.5 } // 50% della sezione deve essere visibile
+      { threshold: 0.2 } 
     );
 
     if (aboutSectionRef.current) {
@@ -37,7 +37,7 @@ const HomePage = () => {
         observer.unobserve(aboutSectionRef.current);
       }
     };
-  }, [aboutVisible]);
+  }, [hasAnimated]);
 
   return (
     <div className="home-container">
@@ -76,7 +76,7 @@ const HomePage = () => {
       </div>
 
       <div 
-        className={`about-us-section ${aboutVisible ? "animate" : ""}`} 
+        className={`about-us-section ${hasAnimated ? "animate" : ""}`} 
         ref={aboutSectionRef}
       >
         <div className="about-container">

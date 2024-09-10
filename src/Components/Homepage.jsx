@@ -5,7 +5,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebookF } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ImageHome2 from "../Images/Grosso enorme uomo.jpg";
-
+import Daniele from "../Images/Daniele.png";
+import Mich from "../Images/Mich.png";
+import Gio from "../Images/Gio.png";
+import Christian from "../Images/Christaian.png";
 const HomePage = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false); 
@@ -109,6 +112,66 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <div className="banner">
+  <div className="banner-overlay">
+    <h4 className="banner-title">Tutti i Nostri Servizi</h4>
+    <div className="banner-content">
+      <div className="banner-item">
+        <h5 className="banner-subtitle">La Nostra Visione</h5>
+        
+        <p>Per ispirare le persone a realizzare i loro obiettivi personali nel fitness mettiamo a disposizione un insieme di programmazione personalizzata!</p>
+      </div>
+      <div className="banner-item">
+        <h5 className="banner-subtitle">I Nostri Servizi</h5>
+        <p>Offriamo un insieme di abbonamenti e uno shop ricco di offerte,oltre a un Team di coach che avrai a disposizione!</p>
+      </div>
+      <div className="banner-item">
+        <h5 className="banner-subtitle">Il Nostro Team</h5>
+        <p>Siamo prima una Famiglia e poi un Team di esperti del mondo del Fitness già con anni di esperienza alle spalle </p>
+      </div>
+      <div className="banner-item">
+        <h5 className="banner-subtitle">Inizia con Noi</h5>
+        <p>Contattaci per maggiori informazioni per iniziare la tua avventura con il Team di Passion Iron.</p>
+      </div>
+    </div>
+    <div >
+        <button className=" btn banner-button">Abbonati</button>
+      </div>
+  </div>
+</div>
+<div className="card-section">
+  <h2 className="card-section-title">Conosci Il Nostro Team di Esperti</h2>
+  <div className="card-container">
+    <div className="card">
+      <img src={Daniele} alt="Daniele Barbato" className="card-image" />
+      <div className="card-info">
+        <h3 className="card-name">Daniele Barbato</h3>
+        <p className="card-bio">Atleta, Coach e motivatore, con anni di esperienza in allenamenti e gare di bodyBuilding</p>
+      </div>
+    </div>
+    <div className="card">
+      <img src={Gio} alt="Giovanni Cinque" className="card-image" />
+      <div className="card-info">
+        <h3 className="card-name">Giovanni Cinque</h3>
+        <p className="card-bio">Specializzato in fitness e Powerlifting, motivatore, coach e atleta in gara!</p>
+      </div>
+    </div>
+    <div className="card">
+      <img src={Mich} alt="Michele Capuano" className="card-image" />
+      <div className="card-info">
+        <h3 className="card-name">Michele Capuano</h3>
+        <p className="card-bio">Capo Fondatore dello Studio Passion Iron e del nostro metodo personalizzato</p>
+      </div>
+    </div>
+    <div className="card">
+      <img src={Christian} alt="Christian Iacono" className="card-image" />
+      <div className="card-info">
+        <h3 className="card-name">Christian Iacono</h3>
+        <p className="card-bio">Trainer Certificato con anni di esperienza con Laurea Mag. Prevenzione e Benessere e Laurea in Scienze Motorie</p>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 };

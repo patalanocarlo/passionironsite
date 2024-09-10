@@ -48,11 +48,11 @@ const HomePage = () => {
       <nav className="navbar">
         <div className="logo">Passion Iron</div>
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <li><a href="#about">Prenotazioni</a></li>
-          <li><a href="#vehicles">I nostri Coach</a></li>
+          <li><Link to="/Prenotazioni">Prenotazioni</Link></li>
+          <li><Link to="/Coach">I nostri Coach</Link></li>
           <li><Link to="/shop">Shop</Link></li>
-          <li><a href="#contacts">Contatti</a></li>
-          <li><a href="#contacts">Abbonamenti</a></li>
+          <li><Link to="/Contattaci">Contattaci</Link></li>
+          <li><Link to="/Abbonamenti">Abbonamenti</Link></li>
         </ul>
         <div className="social-links">
           <a href="https://www.instagram.com/passion_iron/" className="social-icon" target="_blank" rel="noopener noreferrer">
@@ -75,7 +75,8 @@ const HomePage = () => {
         <div className="hero-overlay"></div>
         <div className="hero-text">Build Yourself!</div>
         <div className="cta-container">
-          <button className="cta-button">Inizia con noi</button>
+          <Link to="/Abbonamenti">     <button className="cta-button">Inizia con noi</button></Link>
+     
         </div>
       </div>
 
@@ -104,7 +105,7 @@ const HomePage = () => {
                 <p>
                   Per avere maggiori informazioni, non esitate a contattarci!
                 </p>
-                <button className="btn discover-button">SCOPRI</button>
+                <Link to="/Coach"> <button className="btn discover-button">SCOPRI</button></Link>
               </div>
             </div>
             <div className="image-section">
@@ -136,7 +137,8 @@ const HomePage = () => {
       </div>
     </div>
     <div >
-        <button className=" btn banner-button">Abbonati</button>
+      <Link to="/Abbonamenti"> <button className=" btn banner-button">Abbonati</button></Link>
+
       </div>
   </div>
 </div>
@@ -184,7 +186,8 @@ const HomePage = () => {
 <div class="booking-banner">
 <div class="booking-content">
   <span class="booking-text">Prenota la tua prima lezione <span class="highlight">ADESSO</span></span>
-  <button class="booking-button">Prenota Ora</button>
+  <Link to="/Prenotazioni">  <button class="booking-button">Prenota Ora</button></Link>
+
 </div>
 </div>
 <div class="footer">

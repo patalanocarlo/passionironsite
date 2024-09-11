@@ -249,3 +249,198 @@
   line-height: 1.6;
   color: #cccccc; /* Colore del testo descrittivo leggermente più chiaro */
 }
+
+/* Sezione finale */
+.final-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Allinea verticalmente al centro */
+  text-align: center;
+  padding: 50px;
+  background-color: #1a1a1a; /* Sfondo scuro per il contrasto */
+  color: white;
+}
+
+.final-text h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.final-text p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 40px; /* Spazio tra il testo e la sezione successiva */
+  line-height: 1.6;
+  color: #cccccc;
+}
+
+/* Sezione "Dubbi o domande?" */
+.piani-mensili-section2 {
+  text-align: center;
+  padding: 40px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.piani-mensili-title2 {
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 10px;
+  display: inline-block;
+  position: relative;
+}
+
+.underline2 {
+  width: 80px;
+  height: 2px;
+  background-color: white;
+  margin: 0 auto 10px auto;
+}
+
+.arrow2 {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.piani-mensili-quote2 {
+  font-size: 18px;
+  color: #cccccc;
+  max-width: 600px;
+  margin: 0 auto 20px;
+  line-height: 1.6;
+  font-family: "fantasy";
+}
+
+.cta-button2 {
+  padding: 16px 30px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #ff0000;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Brush Script MT", cursive;
+  margin-top: 10px;
+}
+
+.cta-button2:hover {
+  background-color: #e60000;
+}
+/* Media query per schermi inferiori a 1000px */
+@media (max-width: 1000px) and (min-width: 515px) {
+  .final-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .final-text {
+    margin-bottom: 20px;
+  }
+
+  .final-image-container {
+    order: 1;
+  }
+
+  .final-text {
+    order: 0;
+  }
+
+  .final-image {
+    max-width: 60%;
+    margin-top: 20px;
+  }
+
+  .final-text h2 {
+    font-size: 28px;
+  }
+
+  .final-text p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .piani-mensili-title2 {
+    font-size: 28px;
+  }
+
+  .cta-button2 {
+    font-size: 14px;
+    padding: 12px 25px;
+  }
+}
+@media (max-width: 514px) and (min-width: 355px) {
+  .final-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .final-image-container {
+    order: 1;
+  }
+
+  .final-text {
+    order: 0;
+  }
+
+  .final-image {
+    max-width: 80%;
+  }
+
+  .final-text h2 {
+    font-size: 28px;
+  }
+
+  .final-text p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .piani-mensili-title2 {
+    font-size: 28px;
+  }
+
+  .cta-button2 {
+    font-size: 14px;
+    padding: 12px 25px;
+  }
+}
+@media (max-width: 354px) and (min-width: 320px) {
+  .final-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .final-image-container {
+    order: 1;
+  }
+
+  .final-text {
+    order: 0;
+  }
+
+  .final-image {
+    max-width: 100%;
+  }
+
+  .final-text h2 {
+    font-size: 28px;
+  }
+
+  .final-text p {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .piani-mensili-title2 {
+    font-size: 28px;
+  }
+
+  .cta-button2 {
+    font-size: 14px;
+    padding: 12px 25px;
+  }
+}

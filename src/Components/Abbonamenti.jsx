@@ -187,21 +187,34 @@ const Abbonamenti = () => {
       </div>
       <div className="final-section">
         <div className="final-content">
-          {/* Immagine a sinistra */}
+ 
           <div className="final-image-container">
             <img src={personaImage} alt="Persona" className="final-image" />
           </div>
-          {/* Testo a destra */}
+        
           <div className="final-text">
-            <h2>Entra nella nostra community</h2>
-            <p>
-              Diventa parte della nostra famiglia e allenati con i migliori professionisti del settore.
-              Passa al livello successivo con il supporto di coach esperti, una scheda di allenamento
-              personalizzata e consigli nutrizionali su misura per te. Non esitare, inizia il tuo viaggio
-              verso una forma fisica ottimale oggi stesso!
-            </p>
-          </div>
+  <h2>Entra nella nostra community</h2>
+  <p>
+    Diventa parte della nostra famiglia e allenati con i migliori professionisti del settore.
+    Passa al livello successivo con il supporto di coach esperti, una scheda di allenamento
+    personalizzata e consigli nutrizionali su misura per te. Non esitare, inizia il tuo viaggio
+    verso una forma fisica ottimale oggi stesso!
+  </p>
+
+
+  <div className="piani-mensili-section2">
+    <h2 className="piani-mensili-title2">Dubbi o domande?</h2>
+    <div className="underline2"></div>
+    <div className="arrow2">▼</div>
+    <p className="piani-mensili-quote2">
+      Hai qualche domanda da farci in più? Non esitare a contattarci!
+    </p>
+    <button className="cta-button2">Contattaci</button>
+  </div>
+</div>
+
         </div>
+       
       </div>
     </div>
   );

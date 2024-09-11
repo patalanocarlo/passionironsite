@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../Style/Abbonamento.css'; 
 import { Link } from "react-router-dom";
 import personaImage from '../Images/christian-buehner-QLcxFso3gLk-unsplash-removebg.png';
+
 const piani = [
   {
     titolo: "BRONZO",
@@ -12,9 +13,13 @@ const piani = [
       "1 Sessione Personal con un coach al mese",
       "Consigli nutrizionali",
       "Scheda personalizzata",
-   
     ],
-    svantaggi: ["Nutrizionista Personale", "Controllo peso e dieta",  "Gare Bodybuilding e PowerLifting", "Maglie e gadget Brendizzate",],
+    svantaggi: [
+      "Nutrizionista Personale", 
+      "Controllo peso e dieta",  
+      "Gare Bodybuilding e PowerLifting", 
+      "Maglie e gadget Brendizzate",
+    ],
     bottone: "Abbonati",
     colorePrezzo: "#00C853",
     coloreBottone: "#00C853",
@@ -30,7 +35,11 @@ const piani = [
       "Consigli nutrizionali",
       "Maglie e gadget Brendizzate",
     ],
-    svantaggi: ["Nutrizionista Personale", "Controllo peso e dieta", "Gare Bodybuilding e PowerLifting"],
+    svantaggi: [
+      "Nutrizionista Personale", 
+      "Controllo peso e dieta", 
+      "Gare Bodybuilding e PowerLifting",
+    ],
     bottone: "Abbonati",
     colorePrezzo: "#8E24AA",
     coloreBottone: "#8E24AA",
@@ -45,7 +54,8 @@ const piani = [
       "Scheda personalizzata",
       "Consigli nutrizionali",
       "Maglie e gadget Brendizzate",
-     "Nutrizionista Personale", "Controllo peso e dieta",
+      "Nutrizionista Personale", 
+      "Controllo peso e dieta",
     ],
     svantaggi: ["Gare Bodybuilding e PowerLifting"],
     bottone: "Abbonati",
@@ -62,7 +72,8 @@ const piani = [
       "Scheda personalizzata",
       "Consigli nutrizionali",
       "Maglie e gadget Brendizzate",
-      "Nutrizionista Personale", "Controllo peso e dieta",
+      "Nutrizionista Personale", 
+      "Controllo peso e dieta",
       "Gare Bodybuilding e PowerLifting"
     ],
     svantaggi: [],
@@ -71,6 +82,7 @@ const piani = [
     coloreBottone: "#FF9800",
   },
 ];
+
 const recensioni = [
   {
     nome: "Giulio De Rosa",
@@ -112,9 +124,46 @@ const recensioni = [
     commento: "Servizio clienti e supporto eccellente!",
     stelle: 4,
   },
-
 ];
+
 const Abbonamenti = () => {
+  const pianiMensiliRef = useRef(null);
+  const abbonamentiRef = useRef(null);
+  const recensioniRef = useRef(null);
+  const finalSectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+          // Una volta che l'elemento appare, smette di essere osservato per evitare ripetizioni
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 }); // Applica l'animazione quando almeno il 50% è visibile// Applica l'animazione quando almeno il 50% è visibile
+
+    const elements = [
+      pianiMensiliRef.current,
+      abbonamentiRef.current,
+      recensioniRef.current,
+      finalSectionRef.current
+    ];
+
+    elements.forEach((el) => {
+      if (el) {
+        el.classList.add('hidden');
+        observer.observe(el);
+      }
+    });
+
+    return () => {
+      elements.forEach((el) => {
+        if (el) observer.unobserve(el);
+      });
+    };
+  }, []);
+
   return (
     <div>
       <div className="banner3">
@@ -123,7 +172,7 @@ const Abbonamenti = () => {
         </div>
       </div>
 
-      <div className="piani-mensili-section">
+      <div ref={pianiMensiliRef} className="piani-mensili-section hidden">
         <h2 className="piani-mensili-title">Ecco tutti i nostri piani Mensili</h2>
         <div className="underline"></div>
         <div className="arrow">▼</div>
@@ -132,7 +181,7 @@ const Abbonamenti = () => {
         </p>
       </div>
 
-      <div className="abbonamenti-section">
+      <div ref={abbonamentiRef} className="abbonamenti-section hidden">
         <div className="piani-grid">
           {piani.map((piano, index) => (
             <div key={index} className="piano-card">
@@ -166,7 +215,8 @@ const Abbonamenti = () => {
           ))}
         </div>
       </div>
-      <div className="recensioni-section">
+
+      <div ref={recensioniRef} className="recensioni-section hidden">
         <h2 className="recensioni-title">Non ti fidi ancora?</h2>
         <div className="underline"></div>
         <div className="arrow">▼</div>
@@ -186,39 +236,35 @@ const Abbonamenti = () => {
           ))}
         </div>
       </div>
-      <div className="final-section">
+
+      <div ref={finalSectionRef} className="final-section hidden">
         <div className="final-content">
- 
           <div className="final-image-container">
             <img src={personaImage} alt="Persona" className="final-image" />
           </div>
-        
+
           <div className="final-text">
-  <h2>Entra nella nostra community</h2>
-  <p>
-    Diventa parte della nostra famiglia e allenati con i migliori professionisti del settore.
-    Passa al livello successivo con il supporto di coach esperti, una scheda di allenamento
-    personalizzata e consigli nutrizionali su misura per te. Non esitare, inizia il tuo viaggio
-    verso una forma fisica ottimale oggi stesso!
-  </p>
+            <h2>Entra nella nostra community</h2>
+            <p>
+              Diventa parte della nostra famiglia e allenati con i migliori professionisti del settore.
+              Passa al livello successivo con il supporto di coach esperti, una scheda di allenamento
+              personalizzata e consigli nutrizionali su misura per te. Non esitare, inizia il tuo viaggio
+              verso una forma fisica ottimale oggi stesso!
+            </p>
 
-
-  <div className="piani-mensili-section2">
-    <h2 className="piani-mensili-title2">Dubbi o domande?</h2>
-    <div className="underline2"></div>
-    <div className="arrow2">▼</div>
-    <p className="piani-mensili-quote2">
-      Hai qualche domanda da farci in più? Non esitare a contattarci!
-    </p>
-    <Link to="/contattaci">
-        <button className="cta-button2">Contattaci</button>
-      </Link>
-
-  </div>
-</div>
-
+            <div className="piani-mensili-section2">
+              <h2 className="piani-mensili-title2">Dubbi o domande?</h2>
+              <div className="underline2"></div>
+              <div className="arrow2">▼</div>
+              <p className="piani-mensili-quote2">
+                Hai qualche domanda da farci in più? Non esitare a contattarci!
+              </p>
+              <Link to="/contattaci">
+                <button className="cta-button2">Contattaci</button>
+              </Link>
+            </div>
+          </div>
         </div>
-       
       </div>
     </div>
   );

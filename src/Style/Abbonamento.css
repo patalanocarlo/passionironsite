@@ -444,3 +444,13 @@
     padding: 12px 25px;
   }
 }
+.hidden {
+  opacity: 0;
+  transform: translateY(120px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}

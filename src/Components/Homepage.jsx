@@ -75,8 +75,8 @@ const HomePage = () => {
         <div className="hero-overlay"></div>
         <div className="hero-text">Build Yourself!</div>
         <div className="cta-container">
-          <Link to="/Abbonamenti">     <button className="cta-button">Inizia con noi</button></Link>
-     
+          <Link to="/Abbonamenti">    
+           <button className="cta-button">Inizia con noi</button></Link>
         </div>
       </div>
 

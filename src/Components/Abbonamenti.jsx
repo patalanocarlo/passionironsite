@@ -1,5 +1,6 @@
 import React from 'react';
 import '../Style/Abbonamento.css'; 
+import { Link } from "react-router-dom";
 import personaImage from '../Images/christian-buehner-QLcxFso3gLk-unsplash-removebg.png';
 const piani = [
   {
@@ -102,8 +103,8 @@ const recensioni = [
     stelle: 4,
   },
   {
-    nome: "Francesco Cuomo",
-    commento: "Le sessioni personal mi hanno davvero aiutato a migliorare la tecnica.",
+    nome: "LDI_03",
+    commento: "Le sessioni personal mi hanno davvero aiutato a migliorare la mia tecnica.",
     stelle: 5,
   },
   {
@@ -209,7 +210,10 @@ const Abbonamenti = () => {
     <p className="piani-mensili-quote2">
       Hai qualche domanda da farci in più? Non esitare a contattarci!
     </p>
-    <button className="cta-button2">Contattaci</button>
+    <Link to="/contattaci">
+        <button className="cta-button2">Contattaci</button>
+      </Link>
+
   </div>
 </div>
 

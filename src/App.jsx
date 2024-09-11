@@ -14,7 +14,6 @@ function App() {
         <Route path="/shop" element={<ShopPage />} />  
         <Route path="/Contattaci" element={<Contattaci />} />  
         <Route path="/Abbonamenti" element={<Abbonamenti />} />  
-        <Route path="/Contattaci" element={<Contattaci />} />  
         <Route path="/Prenotazioni" element={<Prenotazioni />} />  
         <Route path="/Coach" element={<Coach />} />  
       </Routes>

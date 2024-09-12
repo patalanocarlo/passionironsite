@@ -203,16 +203,16 @@
 
 .recensione-stelle {
   font-size: 18px;
-  color: #ffd700; /* Colore delle stelle */
+  color: #ffd700;
 }
-/* Sezione finale con immagine a sinistra e testo a destra */
+
 .final-section {
   padding: 50px;
-  background-color: #1a1a1a; /* Sfondo scuro */
+  background-color: #1a1a1a;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white; /* Colore del testo chiaro */
+  color: white;
 }
 
 .final-content {
@@ -240,24 +240,24 @@
 
 .final-text h2 {
   font-size: 36px;
-  color: #f5f5f5; /* Colore del titolo più chiaro */
+  color: #f5f5f5;
   margin-bottom: 20px;
 }
 
 .final-text p {
   font-size: 18px;
   line-height: 1.6;
-  color: #cccccc; /* Colore del testo descrittivo leggermente più chiaro */
+  color: #cccccc;
 }
 
 /* Sezione finale */
 .final-text {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Allinea verticalmente al centro */
+  align-items: center;
   text-align: center;
   padding: 50px;
-  background-color: #1a1a1a; /* Sfondo scuro per il contrasto */
+  background-color: #1a1a1a;
   color: white;
 }
 
@@ -270,7 +270,7 @@
 .final-text p {
   font-size: 18px;
   max-width: 600px;
-  margin-bottom: 40px; /* Spazio tra il testo e la sezione successiva */
+  margin-bottom: 40px;
   line-height: 1.6;
   color: #cccccc;
 }
@@ -330,7 +330,7 @@
 .cta-button2:hover {
   background-color: #e60000;
 }
-/* Media query per schermi inferiori a 1000px */
+
 @media (max-width: 1000px) and (min-width: 515px) {
   .final-content {
     flex-direction: column;
@@ -453,4 +453,56 @@
 .fade-in {
   opacity: 1;
   transform: translateY(0);
+}
+
+.piani-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-items: center;
+  padding: 20px;
+}
+
+.piano-card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 10px 0;
+}
+
+@media (max-width: 1250px) and (min-width: 877px) {
+  .piani-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .piani-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .piano-card {
+    max-width: 90%;
+    margin: 20px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .piani-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .piano-card {
+    max-width: 100%;
+    margin: 15px auto;
+  }
 }

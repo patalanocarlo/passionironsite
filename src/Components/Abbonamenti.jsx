@@ -217,7 +217,7 @@ const Abbonamenti = () => {
       </div>
 
       <div ref={recensioniRef} className="recensioni-section hidden">
-        <h2 className="recensioni-title">Non ti fidi ancora?</h2>
+        <h2 className="recensioni-title">Non sei ancora sicuro?</h2>
         <div className="underline"></div>
         <div className="arrow">▼</div>
         <p className="recensioni-quote">

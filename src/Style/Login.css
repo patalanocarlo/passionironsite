@@ -1,0 +1,95 @@
+/* Reset e impostazioni globali */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+}
+
+/* Contenitore di login */
+.login-background {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../Images/danielle-cerullo-CQfNt66ttZM-unsplash.jpg");
+}
+
+/* Stile del form di login */
+.login-form-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Stile per i campi di input */
+.login-input {
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  background-color: #333;
+  color: white;
+}
+
+/* Stile per i pulsanti */
+.login-button,
+.home-button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button {
+  background-color: #4caf50;
+}
+
+.login-button:hover {
+  background-color: #45a049;
+}
+
+.home-button {
+  background-color: #007bff;
+}
+
+.home-button:hover {
+  background-color: #0056b3;
+}
+
+/* Stile per i link */
+.text-center a {
+  display: block;
+  margin-top: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.color2 {
+  color: white;
+  margin-top: 10px;
+}
+.text-center a:hover {
+  text-decoration: underline;
+}

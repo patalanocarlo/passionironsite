@@ -53,6 +53,8 @@ const HomePage = () => {
           <li><Link to="/shop">Shop</Link></li>
           <li><Link to="/Contattaci">Contattaci</Link></li>
           <li><Link to="/Abbonamenti">Abbonamenti</Link></li>
+          <li><Link to="/Login">Login</Link></li>
+          <li><Link to="/Registrati">Registrati</Link></li>
         </ul>
         <div className="social-links">
           <a href="https://www.instagram.com/passion_iron/" className="social-icon" target="_blank" rel="noopener noreferrer">

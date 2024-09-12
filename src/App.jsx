@@ -6,6 +6,8 @@ import './App.css';
 import Coach from  "./Components/NostriCoach"
 import Prenotazioni from  "./Components/Prenotazioni"
 import Abbonamenti from  "./Components/Abbonamenti"
+import Registrati from "./Components/Registrazione"
+import Login from "./Components/Login"
 function App() {
   return (
     <Router>
@@ -16,6 +18,8 @@ function App() {
         <Route path="/Abbonamenti" element={<Abbonamenti />} />  
         <Route path="/Prenotazioni" element={<Prenotazioni />} />  
         <Route path="/Coach" element={<Coach />} />  
+        <Route path="/Registrati" element={<Registrati />} />  
+        <Route path="/Login" element={<Login />} />  
       </Routes>
     </Router>
   );

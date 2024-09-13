@@ -30,7 +30,7 @@ const Contattaci = () => {
 
       {/* Sezione "Altre opzioni" */}
       <div className="other-options">
-        <h2>Altre opzioni</h2>
+        <h2 className='color3'>Altre opzioni</h2>
         <ul>
           <li><a href="#">Visita il Nostro shop di prodotti Fitness</a></li>
           <li><a href="#">Ottieni informazioni sui nostri coach</a></li>

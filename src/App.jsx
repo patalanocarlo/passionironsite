@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ShopPage from  "./Components/ShopPage"
 import Contattaci from  "./Components/Contattaci"
 import './App.css';
+import { AuthProvider } from './Components/AuthContext';
 import Coach from  "./Components/NostriCoach"
 import Prenotazioni from  "./Components/Prenotazioni"
 import Abbonamenti from  "./Components/Abbonamenti"
@@ -10,6 +11,7 @@ import Registrati from "./Components/Registrazione"
 import Login from "./Components/Login"
 function App() {
   return (
+    <AuthProvider>
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -22,6 +24,7 @@ function App() {
         <Route path="/Login" element={<Login />} />  
       </Routes>
     </Router>
+    </AuthProvider>
   );
 }
 

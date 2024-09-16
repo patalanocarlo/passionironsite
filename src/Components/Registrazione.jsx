@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../Style/Registrazione.css';
 
 const Registrazione = () => {
   const [formData, setFormData] = useState({
     nome: '',
     cognome: '',
+    username: '', // Usa username per la registrazione
     email: '',
     password: '',
     telefono: ''
   });
+  const navigate = useNavigate(); // Hook per navigazione
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,9 +21,30 @@ const Registrazione = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Dati inviati:', formData);
+
+    // Invia una richiesta al server per la registrazione
+    try {
+      const response = await fetch('/auth/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Registrazione completata con successo!');
+        navigate('/login');
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('Errore durante la registrazione:', error);
+    }
   };
 
   return (
@@ -38,6 +61,7 @@ const Registrazione = () => {
               placeholder="Inserisci il tuo nome"
               value={formData.nome}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -49,6 +73,19 @@ const Registrazione = () => {
               placeholder="Inserisci il tuo cognome"
               value={formData.cognome}
               onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Inserisci il tuo username"
+              value={formData.username}
+              onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -60,6 +97,7 @@ const Registrazione = () => {
               placeholder="Inserisci la tua email"
               value={formData.email}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">
@@ -71,6 +109,7 @@ const Registrazione = () => {
               placeholder="Inserisci la tua password"
               value={formData.password}
               onChange={handleChange}
+              required
             />
           </div>
           <div className="form-group">

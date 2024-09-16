@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef,useContext } from "react";
 import "../Style/Homepage.css";
 import { Link } from "react-router-dom";
 import ImageHome from "../Images/HomepageImage.jpg";
@@ -9,8 +9,10 @@ import ImageHome2 from "../Images/Grosso enorme uomo.jpg";
 import Daniele from "../Images/Daniele.png";
 import Mich from "../Images/Mich.png";
 import Gio from "../Images/Gio.png";
+import { AuthContext } from '../Components/AuthContext';
 import Christian from "../Images/Christaian.png";
 const HomePage = () => {
+  const { authState, logout } = useContext(AuthContext);
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false); 
   const aboutSectionRef = useRef(null);
@@ -42,36 +44,44 @@ const HomePage = () => {
       }
     };
   }, [hasAnimated]);
-
+  console.log('User in AuthContext:', authState.user);
   return (
     <div className="home-container">
-      <nav className="navbar">
-        <div className="logo">Passion Iron</div>
-        <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
-          <li><Link to="/Prenotazioni">Prenotazioni</Link></li>
-          <li><Link to="/Coach">I nostri Coach</Link></li>
-          <li><Link to="/shop">Shop</Link></li>
-          <li><Link to="/Contattaci">Contattaci</Link></li>
-          <li><Link to="/Abbonamenti">Abbonamenti</Link></li>
-          <li><Link to="/Login">Login</Link></li>
-          <li><Link to="/Registrati">Registrati</Link></li>
-        </ul>
-        <div className="social-links">
-          <a href="https://www.instagram.com/passion_iron/" className="social-icon" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faInstagram} />
-          </a>
-          <a href="https://www.facebook.com/teampassioniron/" className="social-icon" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faFacebookF} />
-          </a>
-          <a href="mailto:info@passioniron.com" className="social-icon" target="_blank" rel="noopener noreferrer">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
-        </div>
-        <div className="menu-icon" onClick={toggleMenu}>
-          ☰
-        </div>
-      </nav>
-
+        <nav className="navbar">
+                <div className="logo">Passion Iron</div>
+                <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
+                    <li><Link to="/Prenotazioni">Prenotazioni</Link></li>
+                    <li><Link to="/Coach">I nostri Coach</Link></li>
+                    <li><Link to="/shop">Shop</Link></li>
+                    <li><Link to="/Contattaci">Contattaci</Link></li>
+                    <li><Link to="/Abbonamenti">Abbonamenti</Link></li>
+                    {authState.token ? (
+                        <li>
+                            Benvenuto, {authState.user.username} 
+                            <button className="Logout" onClick={logout}>Logout</button>
+                        </li>
+                    ) : (
+                        <>
+                            <li><Link to="/Login">Login</Link></li>
+                            <li><Link to="/Registrati">Registrati</Link></li>
+                        </>
+                    )}
+                </ul>
+                <div className="social-links">
+                    <a href="https://www.instagram.com/passion_iron/" className="social-icon" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faInstagram} />
+                    </a>
+                    <a href="https://www.facebook.com/teampassioniron/" className="social-icon" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                    </a>
+                    <a href="mailto:info@passioniron.com" className="social-icon" target="_blank" rel="noopener noreferrer">
+                        <FontAwesomeIcon icon={faEnvelope} />
+                    </a>
+                </div>
+                <div className="menu-icon" onClick={toggleMenu}>
+                    ☰
+                </div>
+            </nav>
       <div className="hero-image">
         <img src={ImageHome} alt="Car" />
         <div className="hero-overlay"></div>

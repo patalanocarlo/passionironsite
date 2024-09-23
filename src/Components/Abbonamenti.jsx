@@ -1,7 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../Style/Abbonamento.css'; 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import personaImage from '../Images/christian-buehner-QLcxFso3gLk-unsplash-removebg.png';
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements, useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { useAuthContext } from '../Components/AuthContext'; 
+const stripePromise = loadStripe('pk_test_51PgiuoRoqJCjOJgQOgcXBwJSUQuqkluMbchOS3bM2PAA9JsbycUco5Y9kOoHjYravhi37L25wKhACAp1JDT0vn1700owDLitg8'); // Chiave pubblica di Stripe
 
 const piani = [
   {
@@ -82,7 +86,6 @@ const piani = [
     coloreBottone: "#FF9800",
   },
 ];
-
 const recensioni = [
   {
     nome: "Giulio De Rosa",
@@ -129,19 +132,22 @@ const recensioni = [
 const Abbonamenti = () => {
   const pianiMensiliRef = useRef(null);
   const abbonamentiRef = useRef(null);
-  const recensioniRef = useRef(null);
   const finalSectionRef = useRef(null);
+  const recensioniRef=useRef(null)
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPiano, setSelectedPiano] = useState(null);
+  const { authState } = useAuthContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('fade-in');
-          // Una volta che l'elemento appare, smette di essere osservato per evitare ripetizioni
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.1 }); // Applica l'animazione quando almeno il 50% è visibile// Applica l'animazione quando almeno il 50% è visibile
+    }, { threshold: 0.1 });
 
     const elements = [
       pianiMensiliRef.current,
@@ -163,6 +169,24 @@ const Abbonamenti = () => {
       });
     };
   }, []);
+
+  const openModal = (piano) => {
+    setSelectedPiano(piano);
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    setSelectedPiano(null);
+  };
+
+  const handleAbbonatiClick = (piano) => {
+    if (!authState.token) {
+      navigate("/login");
+    } else {
+      openModal(piano);
+    }
+  };
 
   return (
     <div>
@@ -208,6 +232,7 @@ const Abbonamenti = () => {
               <button
                 className="piano-button"
                 style={{ backgroundColor: piano.coloreBottone }}
+                onClick={() => handleAbbonatiClick(piano)}
               >
                 {piano.bottone}
               </button>
@@ -215,28 +240,7 @@ const Abbonamenti = () => {
           ))}
         </div>
       </div>
-
-      <div ref={recensioniRef} className="recensioni-section hidden">
-        <h2 className="recensioni-title">Non sei ancora sicuro?</h2>
-        <div className="underline"></div>
-        <div className="arrow">▼</div>
-        <p className="recensioni-quote">
-          Leggi le recensioni della nostra community e dei nostri atleti!
-        </p>
-
-        <div className="recensioni-grid">
-          {recensioni.map((recensione, index) => (
-            <div key={index} className="recensione-card">
-              <h4 className="recensione-nome">{recensione.nome}</h4>
-              <p className="recensione-commento">{recensione.commento}</p>
-              <div className="recensione-stelle">
-                {"★".repeat(recensione.stelle)}{"☆".repeat(5 - recensione.stelle)}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
+      <div ref={recensioniRef} className="recensioni-section hidden"> <h2 className="recensioni-title">Non sei ancora sicuro?</h2> <div className="underline"></div> <div className="arrow">▼</div> <p className="recensioni-quote"> Leggi le recensioni della nostra community e dei nostri atleti! </p> <div className="recensioni-grid"> {recensioni.map((recensione, index) => ( <div key={index} className="recensione-card"> <h4 className="recensione-nome">{recensione.nome}</h4> <p className="recensione-commento">{recensione.commento}</p> <div className="recensione-stelle"> {"★".repeat(recensione.stelle)}{"☆".repeat(5 - recensione.stelle)} </div> </div> ))} </div> </div>
       <div ref={finalSectionRef} className="final-section hidden">
         <div className="final-content">
           <div className="final-image-container">
@@ -266,7 +270,83 @@ const Abbonamenti = () => {
           </div>
         </div>
       </div>
+
+      {/* Modale per il pagamento */}
+      {showModal && (
+   <div className="modal-overlay">
+   <div className="modal-content">
+     <h3 className="modal-title">Pagamento per il piano: {selectedPiano.titolo}</h3>
+     <Elements stripe={stripePromise}>
+       <StripePaymentForm piano={selectedPiano} closeModal={closeModal} />
+     </Elements>
+     <div className="modal-buttons">
+       <button className="modal-close-button" onClick={closeModal}>Chiudi</button>
+  
+     </div>
+   </div>
+ </div>
+ 
+      )}
     </div>
+  );
+};
+
+const StripePaymentForm = ({ piano, closeModal }) => {
+  const stripe = useStripe();
+  const elements = useElements();
+  const { authState } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (!stripe || !elements) {
+        return;
+    }
+
+    const cardElement = elements.getElement(CardElement);
+    const { token, error } = await stripe.createToken(cardElement);
+
+    if (error) {
+        console.error("Errore nella creazione del token:", error);
+        return;
+    }
+
+    try {
+      const response = await fetch('/api/pagamenti/checkout', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${authState.token}`, // Assicurati che il token sia valido
+        },
+        body: JSON.stringify({
+            stripeToken: token.id,
+            pianoId: piano.id,
+            amount: parseInt(piano.prezzo.replace('€', '').replace(',', '').trim()) * 100,
+        }),
+    });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error("Errore nel pagamento:", errorText);
+            alert("Errore nel pagamento: " + errorText);
+            return;
+        }
+
+        const jsonData = await response.json();
+        alert("Pagamento riuscito! ID del pagamento: " + jsonData);
+        closeModal();
+        navigate('/abbonamento-successo');
+    } catch (error) {
+        console.error("Errore nella richiesta al server:", error);
+        alert("Errore nel pagamento. Riprova più tardi.");
+    }
+};
+  return (
+    <form onSubmit={handleSubmit}>
+      <CardElement />
+      <button className="modal-pay-button"    type="submit" disabled={!stripe}>Paga ora</button>
+    </form>
   );
 };
 

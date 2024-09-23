@@ -9,6 +9,7 @@ import Prenotazioni from  "./Components/Prenotazioni"
 import Abbonamenti from  "./Components/Abbonamenti"
 import Registrati from "./Components/Registrazione"
 import Login from "./Components/Login"
+import Carrello from "./Components/Carrello";
 function App() {
   return (
     <AuthProvider>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Coach" element={<Coach />} />  
         <Route path="/Registrati" element={<Registrati />} />  
         <Route path="/Login" element={<Login />} />  
+        <Route path="/Carrello" element={<Carrello />} />  
       </Routes>
     </Router>
     </AuthProvider>

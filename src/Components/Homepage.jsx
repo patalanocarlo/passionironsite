@@ -158,35 +158,60 @@ const HomePage = () => {
   <h2 className="card-section-title">Conosci Il Nostro Team di Esperti</h2>
   <div className="card-container">
     <div className="card">
-      <img src={Daniele} alt="Daniele Barbato" className="card-image" />
-      <div className="card-info">
-        <h3 className="card-name">Daniele Barbato</h3>
-        <p className="card-bio">Atleta, Coach e motivatore, con anni di esperienza in allenamenti e gare di bodyBuilding</p>
+      <div className="card-inner"> 
+        <div className="card-front"> 
+          <img src={Daniele} alt="Daniele Barbato" className="card-image" />
+        </div>
+        <div className="card-back"> 
+          <div className="card-info">
+            <h3 className="card-name">Daniele Barbato</h3>
+            <p className="card-bio">Atleta, Coach e motivatore, con anni di esperienza in allenamenti e gare di bodyBuilding</p>
+          </div>
+        </div>
       </div>
     </div>
     <div className="card">
-      <img src={Gio} alt="Giovanni Cinque" className="card-image" />
-      <div className="card-info">
-        <h3 className="card-name">Giovanni Cinque</h3>
-        <p className="card-bio">Specializzato in fitness e Powerlifting, motivatore, coach e atleta in gara!</p>
+      <div className="card-inner">
+        <div className="card-front">
+          <img src={Gio} alt="Giovanni Cinque" className="card-image" />
+        </div>
+        <div className="card-back">
+          <div className="card-info">
+            <h3 className="card-name">Giovanni Cinque</h3>
+            <p className="card-bio">Specializzato in fitness e Powerlifting, motivatore, coach e atleta in gara!</p>
+          </div>
+        </div>
       </div>
     </div>
     <div className="card">
-      <img src={Mich} alt="Michele Capuano" className="card-image" />
-      <div className="card-info">
-        <h3 className="card-name">Michele Capuano</h3>
-        <p className="card-bio">Capo Fondatore dello Studio Passion Iron e del nostro metodo personalizzato</p>
+      <div className="card-inner">
+        <div className="card-front">
+          <img src={Mich} alt="Michele Capuano" className="card-image" />
+        </div>
+        <div className="card-back">
+          <div className="card-info">
+            <h3 className="card-name">Michele Capuano</h3>
+            <p className="card-bio">Capo Fondatore dello Studio Passion Iron e del nostro metodo personalizzato</p>
+          </div>
+        </div>
       </div>
     </div>
     <div className="card">
-      <img src={Christian} alt="Christian Iacono" className="card-image" />
-      <div className="card-info">
-        <h3 className="card-name">Christian Iacono</h3>
-        <p className="card-bio">Trainer Certificato con anni di esperienza con Laurea Mag. Prevenzione e Benessere e Laurea in Scienze Motorie</p>
+      <div className="card-inner">
+        <div className="card-front">
+          <img src={Christian} alt="Christian Iacono" className="card-image" />
+        </div>
+        <div className="card-back">
+          <div className="card-info">
+            <h3 className="card-name">Christian Iacono</h3>
+            <p className="card-bio">Trainer Certificato con anni di esperienza con Laurea Mag. Prevenzione e Benessere e Laurea in Scienze Motorie</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 <div className="be-passionate-section">
   <h2 className="be-passionate-title">Allora ti abbiamo convinto?</h2>
   <div className="underline"></div>

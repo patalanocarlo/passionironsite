@@ -1,0 +1,60 @@
+/* Carrello.css */
+
+.carrello-page {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.carrello-left {
+  flex: 2;
+  padding-right: 20px;
+}
+
+.carrello-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrello-items {
+  list-style-type: none;
+  padding: 0;
+}
+
+.carrello-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.item-name {
+  font-weight: bold;
+}
+
+.item-prezzo {
+  color: #333;
+}
+
+.carrello-totale {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.acquista-button {
+  background-color: #00c853;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.acquista-button:hover {
+  background-color: #009624;
+}

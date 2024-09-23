@@ -506,3 +506,109 @@
     margin: 15px auto;
   }
 }
+.carrello {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: white;
+  border: 2px solid red;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  padding: 10px;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
+
+.carrello:hover {
+  transform: scale(1.1);
+}
+
+.carrello a {
+  color: red; /* Colore dell'icona */
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrello-count {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+  width: 90%;
+  max-width: 500px; /* Aumentato per rendere il modale più grande */
+  text-align: center;
+  animation: slide-in 0.3s ease-out;
+}
+
+.modal-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center; /* Allineamento centrale */
+  margin-top: 20px; /* Spazio sopra i pulsanti */
+}
+
+.modal-close-button,
+.modal-pay-button {
+  background-color: #ff5252; /* Colore per il pulsante chiudi */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 5px; /* Margine orizzontale tra i pulsanti */
+}
+
+.modal-pay-button {
+  background-color: #4caf50; /* Colore verde per il pulsante paga */
+}
+
+.modal-close-button:hover {
+  background-color: #e04141;
+}
+
+.modal-pay-button:hover {
+  background-color: #45a049; /* Colore al passaggio del mouse per il pulsante paga */
+}
+
+/* Animazione di entrata */
+@keyframes slide-in {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
